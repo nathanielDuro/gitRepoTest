@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>ADD REPAIRS HTML</h1>
+    <h2>Add a repairs to a car:</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <select name="cars" id="cars">
+                {% for car in all_cars %}
+                    <option value="{{car.id}}">{{car.brand}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="brand">Repair Description:</label>
+            <input class="form-control" type="text" id="repair_description" name="repair_description">
+        </div>
+        <div class="form-group">
+            <label for="year">Date:</label>
+            <input class="form-control" type="date" id="repaired_date" name="repaired_date">
+        </div>
+        <input class="btn btn-primary" type="submit">
+    </form>
+</div>
+
+
+{% endblock %}
